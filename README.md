@@ -39,10 +39,8 @@ module full_adder(input wire a, b, c, output reg sum, output reg carry);
     half_adder gate1(a, b, s1, c1);
     half_adder gate2(s1, c, sum, c2);
 
-    always @(a or b or c)
-    begin
+    always @*
         carry = c1 | c2;
-    end
 endmodule
 ```
 
