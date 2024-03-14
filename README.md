@@ -4,7 +4,7 @@ This repository is dedicated to documenting common errors we encounter when usin
 
 ## How to Contribute
 
-We encourage contributions from the Verilog community to enrich this repository with more error examples and their explanations. Here's how you can contribute:
+We encourage you to enrich this repository with more error examples and their explanations. Here's how you can contribute:
 
 1. **Submit New Errors**: If you encounter a Verilog error that's not yet documented here, feel free to submit it along with its explanation. Please ensure the explanation is clear and concise.
 
