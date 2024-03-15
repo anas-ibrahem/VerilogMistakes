@@ -73,7 +73,7 @@ endmodule
 In Verilog, you cannot assign a value to a reg in the same module in 2 diffrent always blocks even if u assume that they have diffrent conditions
 it won't work
 
-**Example** [^1]
+**Example** [^2]
 
 ```verilog
 module counter(
@@ -100,7 +100,7 @@ module counter(
 endmodule
 ```
 
-To sovle this u need to keep the assigning in one always block using conditions instead
+To solve this u need to keep the assigning in one always block using conditions instead
 
 ```verilog
 module counter(
@@ -122,5 +122,5 @@ module counter(
 endmodule
 ```
 
-[^1]: Original issue (  https://electronics.stackexchange.com/questions/29601/why-cant-regs-be-assigned-to-multiple-always-blocks-in-synthesizable-verilog).
+[^2]: Original issue (  https://electronics.stackexchange.com/questions/29601/why-cant-regs-be-assigned-to-multiple-always-blocks-in-synthesizable-verilog ).
 
