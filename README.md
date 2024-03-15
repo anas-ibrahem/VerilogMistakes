@@ -62,3 +62,65 @@ endmodule
 ```
 
 [^1]: Original issue & answer on Stackoverflow (https://stackoverflow.com/a/69479858/12349259).
+
+
+
+
+### 2. Assigning a value to a reg in 2 diffrent always blocks
+
+> Error (10028): Can't resolve multiple constant drivers for net "count[3]" at counter.v(15)
+
+In Verilog, you cannot assign a value to a reg in the same module in 2 diffrent always blocks even if u assume that they have diffrent conditions
+it won't work
+
+**Example** [^1]
+
+```verilog
+module counter(
+    input wire clk,
+    input wire rst,       
+    input wire dir,      
+    output reg [3:0] count 
+);
+
+    always @(posedge rst)
+    begin
+
+        count  <= 0;
+    end
+	 
+
+    always @(posedge clk)
+    begin
+
+        count  <= count + 1;
+    end
+	 
+	 
+endmodule
+```
+
+To sovle this u need to keep the assigning in one always block using conditions instead
+
+```verilog
+module counter(
+    input wire clk,
+    input wire rst,       
+    input wire dir,      
+    output reg [3:0] count 
+);
+
+
+    always @(posedge clk or posedge rst)
+    begin
+			
+			if (rst) count  <= 0;
+			else count  <= count + 1;
+    end
+	 
+	 
+endmodule
+```
+
+[^1]: Original issue (  https://electronics.stackexchange.com/questions/29601/why-cant-regs-be-assigned-to-multiple-always-blocks-in-synthesizable-verilog).
+
